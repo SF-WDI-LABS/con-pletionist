@@ -54,16 +54,15 @@ This repo holds the completed app solution.
   <details>
     <summary>Stuck? Click to see some Terminal commands you'll want to use to get the server going.</summary>
 
-    ```bash
-    $ rails db:create
-    $ rails db:migrate
-    $ rails server
-    ```
-
-    in a different tab:
-    ```bash
-    $ rails routes
-    ```
+```bash
+$ rails db:create
+$ rails db:migrate
+$ rails server
+```
+in a different tab:
+```bash
+$ rails routes
+```
 
   </details>
 
@@ -88,9 +87,9 @@ This repo holds the completed app solution.
   <details>
     <summary>Stuck? Click to see suggestions about where to look for more information.</summary>
 
-    * search for "Rails url helper"
-    * search for "Rails url helper JSON format"
-    * revisit the example in the `jbuilder` documentation
+* search for "Rails url helper"
+* search for "Rails url helper JSON format"
+* revisit the example in the `jbuilder` documentation
 
   </details>
 
