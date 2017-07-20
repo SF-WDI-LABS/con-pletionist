@@ -116,30 +116,62 @@ $ rails routes
 
 11. Wait to make changes, but explore the following files or directories and see how or if the association is reflected in each. When you're finished with a file or directory, click the file or directory name to compare notes.
 
-  * <details><summary>views/talks/</summary>
+  * <details><summary>
+
+      `views/talks/`
+
+    </summary>
     form partial includes a conference id (and a cool datetime form element!); show and index html templates display the conference; show and index JSON templates include the conference id</details>
-  * <details><summary>config/routes.rb</summary> routes for talks and conferences are both included, but talks aren't nested in conferences </details>
-  * <details><summary>app/controllers/talks_controller.rb</summary>
+  * <details><summary>
+
+      `config/routes.rb`
+
+    </summary>
+
+    routes for talks and conferences are both included, but talks aren't nested in conferences
+
+    </details>
+  * <details><summary>
+
+      `app/controllers/talks_controller.rb`
+
+    </summary>
 
     the conference id is brought in as a permitted parameter in `talk_params`
 
     </details>
-  * <details><summary>app/models/talk.rb</summary>
+  * <details><summary>
+
+      `app/models/talk.rb`
+
+    </summary>
 
     `belongs_to :conference` is set up!
 
     </details>
-  * <details><summary>app/models/conference.rb</summary>
+  * <details><summary>
+
+      `app/models/conference.rb`
+
+    </summary>
 
     the association is incomplete on this side; you'll add `has_many :talks` here
 
     </details>
-  * <details><summary>db/migrate/</summary>
+  * <details><summary>
+
+      `db/migrate/`
+
+    </summary>
 
     there's a new migration file to create the talks table, and it includes a `t.belongs_to` for the conference foreign key
 
     </details>
-  * <details><summary>db/schema.rb</summary>
+  * <details><summary>
+
+      `db/schema.rb`
+
+    </summary>
 
     since you had to run `rake db:migrate` to get talks working, there should be a talks table here with the foreign key set up
 
