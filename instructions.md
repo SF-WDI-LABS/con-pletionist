@@ -14,8 +14,8 @@ Meta-goals:
   * Practice finding and using documentation.
   * Practice picking out key words from project descriptions.
   * Explain pros and cons of using code generators.
-  
-  
+
+
 You should already be able to:
 
   * make requests with Postman or `curl`
@@ -36,7 +36,9 @@ This repo holds the completed app solution.
 
   <details>
     <summary>Stuck? Click to see the Terminal command to run.</summary>
+
     In your Terminal, run `rails new con-pletionist  --database=postgresql -T --api`
+
   </details>  
 
   **Next up:** explore scaffolding
@@ -51,16 +53,18 @@ This repo holds the completed app solution.
 
   <details>
     <summary>Stuck? Click to see some Terminal commands you'll want to use to get the server going.</summary>
+
     ```bash
     $ rails db:create
     $ rails db:migrate
     $ rails server
     ```
-    
+
     in a different tab:
     ```bash
     $ rails routes
     ```
+
   </details>
 
 4.  Once you have your Rails server running, spend 10 minutes interacting with the site through Postman. Try all CRUD actions for conferences, using the routes listed in your `rails routes`. Try visiting `localhost:3000/conferences` and `localhost:3000/conferences.json` in your browser.
@@ -72,20 +76,22 @@ This repo holds the completed app solution.
   * Taking a hint from the generated comments in the conferences controller, visit the `/conferences` endpoint in your browser. What do you see?
 
   * In the conferences controller, what is the `conference_params` private method for? What does the `params.fetch(:conference, {})` line do?
-  
+
   * Find documentation for the `render` method.  `render` with a hash like `{ json: @conference }` ?
 
   **Next up**: build JSON with `jbuilder`
 
 6. The JSON views are using a gem called `jbuilder`, which might have noticed in the file extension `.json.jbuilder`.  Look over the first example input and output in the [`jbuilder` docs](https://github.com/rails/jbuilder) to see some of how `jbuilder` creates structured data.
 
-7. Edit `views/conferences/index.json.jbuilder` and/or `views/conferences/show.json.jbuilder` so that both JSON views include a field for the url of each conference. Use url helpers to generate the correct url for each conference, and set the format of the url to JSON. Hint: start by looking at each of these files. 
+7. Edit `views/conferences/index.json.jbuilder` and/or `views/conferences/show.json.jbuilder` so that both JSON views include a field for the url of each conference. Use url helpers to generate the correct url for each conference, and set the format of the url to JSON. Hint: start by looking at each of these files.
 
   <details>
     <summary>Stuck? Click to see suggestions about where to look for more information.</summary>
+
     * search for "Rails url helper"
     * search for "Rails url helper JSON format"
     * revisit the example in the `jbuilder` documentation
+
   </details>
 
 ### Incorporate Talks
@@ -96,9 +102,11 @@ This repo holds the completed app solution.
 
   <details>
     <summary>Click to see the Terminal command used to generate the scaffold in the solutions.</summary>
+
     ```bash
     $ rails g scaffold talk title:string speaker_name:string start_time:datetime end_time:datetime conference:belongs_to
     ```
+
   </details>
 
 9. Get your rails server running again with talks, and spend 2-5 minutes using the site. Try CRUD operations on talks.
@@ -112,11 +120,31 @@ This repo holds the completed app solution.
   * <details><summary>views/talks/</summary>
     form partial includes a conference id (and a cool datetime form element!); show and index html templates display the conference; show and index JSON templates include the conference id</details>
   * <details><summary>config/routes.rb</summary> routes for talks and conferences are both included, but talks aren't nested in conferences </details>
-  * <details><summary>app/controllers/talks_controller.rb</summary> the conference id is brought in as a permitted parameter in `talk_params` </details>
-  * <details><summary>app/models/talk.rb</summary> `belongs_to :conference` is set up! </details>
-  * <details><summary>app/models/conference.rb</summary> the association is incomplete on this side; you'll add `has_many :talks` here </details>
-  * <details><summary>db/migrate/</summary> there's a new migration file to create the talks table, and it includes a `t.belongs_to` for the conference foreign key </details>
-  * <details><summary>db/schema.rb</summary> since you had to run `rake db:migrate` to get talks working, there should be a talks table here with the foreign key set up </details>
+  * <details><summary>app/controllers/talks_controller.rb</summary>
+
+    the conference id is brought in as a permitted parameter in `talk_params`
+
+    </details>
+  * <details><summary>app/models/talk.rb</summary>
+
+    `belongs_to :conference` is set up!
+
+    </details>
+  * <details><summary>app/models/conference.rb</summary>
+
+    the association is incomplete on this side; you'll add `has_many :talks` here
+
+    </details>
+  * <details><summary>db/migrate/</summary>
+
+    there's a new migration file to create the talks table, and it includes a `t.belongs_to` for the conference foreign key
+
+    </details>
+  * <details><summary>db/schema.rb</summary>
+
+    since you had to run `rake db:migrate` to get talks working, there should be a talks table here with the foreign key set up
+
+    </details>
 
 
 12. Create a one-to-many association by coding the fact that a conference has many talks into your conference model. Also make sure that a conference's talks are destroyed when the conference is destroyed.  Why do you suppose the scaffold left out the `has_many` code? Discuss with others until you're satisfied with an answer.
@@ -130,10 +158,12 @@ This repo holds the completed app solution.
 14. Add seed data to your project to create at least 2 conferences and 5 talks. Test your CRUD methods in the Rails console.
 
   <details><summary>Click for tips for seeding times in Rails.</summary>
+
     * you can use `Time.current` to get a time with time zone information (the default time zone is UTC)
     * (you can set the time zone with `Time.zone=` or `config.time_zone`)
     * you can use methods like `2.5.hours` to create amounts of time that can be added or subtracted with other times
     * you can also use methods like `1.days.from_now.at_noon` to create times
+
   </details>
 
 15. Seed your database, and run through your app to confirm that your JSON and HTML views are working as expected.
@@ -156,9 +186,25 @@ This repo holds the completed app solution.
 
   Write your `cURL` commands down to use again later.
 
-  <details><summary>Stuck? Click to see a sample verbose `cURL` command to get JSON for `GET /conferences/3`. (You'll need to modify it!)</summary>`$ curl -v -H "Accept: application/json" -H "Content-type: appliction/json" -X GET https://con-pletionist.herokuapp.com/conferences/3`</details>
+  <details><summary>
 
-  <details><summary>Stuck? Click to see a sample verbose `cURL` command for `POST /talks`. (You'll need to modify it!)</summary>`$ curl -v -H "Accept: application/json" -H "Content-type: application/json" -X POST -d ' {"talk":{"title":"The Future of Kia Automobiles","speaker_name":"Chip Cilantro"}}'  https://con-pletionist.herokuapp.com/talks`</details>
+      Stuck? Click to see a sample verbose `cURL` command to get JSON for `GET /conferences/3`. (You'll need to modify it!)
+
+    </summary>
+
+  `$ curl -v -H "Accept: application/json" -H "Content-type: appliction/json" -X GET https://con-pletionist.herokuapp.com/conferences/3`
+
+  </details>
+
+  <details><summary>
+
+      Stuck? Click to see a sample verbose `cURL` command for `POST /talks`. (You'll need to modify it!)
+
+    </summary>
+
+    `$ curl -v -H "Accept: application/json" -H "Content-type: application/json" -X POST -d ' {"talk":{"title":"The Future of Kia Automobiles","speaker_name":"Chip Cilantro"}}'  https://con-pletionist.herokuapp.com/talks`
+
+  </details>
 
 18. Do you see errors or unexpected results when you run your `cURL` commands?
 
