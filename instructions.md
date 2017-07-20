@@ -218,9 +218,7 @@ $ rails routes
   Write your `cURL` commands down to use again later.
 
   <details><summary>
-
-      Stuck? Click to see a sample verbose `cURL` command to get JSON for `GET /conferences/3`. (You'll need to modify it!)
-
+      Stuck? Click to see a sample verbose cURL command to get JSON for GET /conferences/3. (You'll need to modify it!)
     </summary>
 
   `$ curl -v -H "Accept: application/json" -H "Content-type: appliction/json" -X GET https://con-pletionist.herokuapp.com/conferences/3`
@@ -228,9 +226,7 @@ $ rails routes
   </details>
 
   <details><summary>
-
-      Stuck? Click to see a sample verbose `cURL` command for `POST /talks`. (You'll need to modify it!)
-
+      Stuck? Click to see a sample verbose cURL command for POST /talks. (You'll need to modify it!)
     </summary>
 
     `$ curl -v -H "Accept: application/json" -H "Content-type: application/json" -X POST -d ' {"talk":{"title":"The Future of Kia Automobiles","speaker_name":"Chip Cilantro"}}'  https://con-pletionist.herokuapp.com/talks`
