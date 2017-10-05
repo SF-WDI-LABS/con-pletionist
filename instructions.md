@@ -41,7 +41,7 @@ This repo holds the completed app solution.
 
   </details>  
   
-  `cd` into your app and open your Gemfile. Uncomment the line including the `jbuilder` gem. `jbuilder` is a gem that creates JSON for our API routes, the same way that our `.html.erb` files create HTML for our normal routes.
+  `cd` into your app and open your Gemfile. Uncomment the line including the `jbuilder` gem. `jbuilder` is a gem that creates JSON for our API routes, the same way that our `.html.erb` files create HTML for our normal routes. Run `bundle install`.
 
   **Next up:** explore scaffolding
 
