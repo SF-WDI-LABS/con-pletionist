@@ -40,6 +40,8 @@ This repo holds the completed app solution.
     In your Terminal, run `rails new con-pletionist  --database=postgresql -T --api`
 
   </details>  
+  
+  `cd` into your app and open your Gemfile. Uncomment the line including the `jbuilder` gem. `jbuilder` is a gem that creates JSON for our API routes, the same way that our `.html.erb` files create HTML for our normal routes.
 
   **Next up:** explore scaffolding
 
@@ -80,7 +82,7 @@ $ rails routes
 
   **Next up**: build JSON with `jbuilder`
 
-6. The JSON views are using a gem called `jbuilder`, which might have noticed in the file extension `.json.jbuilder`.  Look over the first example input and output in the [`jbuilder` docs](https://github.com/rails/jbuilder) to see some of how `jbuilder` creates structured data.
+6. Look over the first example input and output in the [`jbuilder` docs](https://github.com/rails/jbuilder) to see some of how `jbuilder` creates structured data.
 
 7. Edit `views/conferences/index.json.jbuilder` and/or `views/conferences/show.json.jbuilder` so that both JSON views include a field for the url of each conference. Use url helpers to generate the correct url for each conference, and set the format of the url to JSON. Hint: start by looking at each of these files.
 
@@ -102,9 +104,9 @@ $ rails routes
   <details>
     <summary>Click to see the Terminal command used to generate the scaffold in the solutions.</summary>
 
-    ```bash
-    $ rails g scaffold talk title:string speaker_name:string start_time:datetime end_time:datetime conference:belongs_to
-    ```
+```bash
+$ rails g scaffold talk title:string speaker_name:string start_time:datetime end_time:datetime conference:belongs_to
+```
 
   </details>
 
@@ -118,13 +120,13 @@ $ rails routes
 
   * <details><summary>
 
-      `views/talks/`
+`views/talks/`
 
     </summary>
     form partial includes a conference id (and a cool datetime form element!); show and index html templates display the conference; show and index JSON templates include the conference id</details>
   * <details><summary>
 
-      `config/routes.rb`
+`config/routes.rb`
 
     </summary>
 
@@ -133,7 +135,7 @@ $ rails routes
     </details>
   * <details><summary>
 
-      `app/controllers/talks_controller.rb`
+`app/controllers/talks_controller.rb`
 
     </summary>
 
@@ -142,38 +144,38 @@ $ rails routes
     </details>
   * <details><summary>
 
-      `app/models/talk.rb`
+`app/models/talk.rb`
 
     </summary>
 
-    `belongs_to :conference` is set up!
+`belongs_to :conference` is set up!
 
     </details>
   * <details><summary>
 
-      `app/models/conference.rb`
+`app/models/conference.rb`
 
     </summary>
 
-    the association is incomplete on this side; you'll add `has_many :talks` here
+the association is incomplete on this side; you'll add `has_many :talks` here
 
     </details>
   * <details><summary>
 
-      `db/migrate/`
+`db/migrate/`
 
     </summary>
 
-    there's a new migration file to create the talks table, and it includes a `t.belongs_to` for the conference foreign key
+there's a new migration file to create the talks table, and it includes a `t.belongs_to` for the conference foreign key
 
     </details>
   * <details><summary>
 
-      `db/schema.rb`
+`db/schema.rb`
 
     </summary>
 
-    since you had to run `rake db:migrate` to get talks working, there should be a talks table here with the foreign key set up
+since you had to run `rake db:migrate` to get talks working, there should be a talks table here with the foreign key set up
 
     </details>
 
@@ -229,7 +231,7 @@ $ rails routes
       Stuck? Click to see a sample verbose cURL command for POST /talks. (You'll need to modify it!)
     </summary>
 
-    `$ curl -v -H "Accept: application/json" -H "Content-type: application/json" -X POST -d ' {"talk":{"title":"The Future of Kia Automobiles","speaker_name":"Chip Cilantro"}}'  https://con-pletionist.herokuapp.com/talks`
+`$ curl -v -H "Accept: application/json" -H "Content-type: application/json" -X POST -d ' {"talk":{"title":"The Future of Kia Automobiles","speaker_name":"Chip Cilantro"}}'  https://con-pletionist.herokuapp.com/talks`
 
   </details>
 
