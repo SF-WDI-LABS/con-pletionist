@@ -182,9 +182,9 @@ $ rails g scaffold talk title:string speaker_name:string start_time:datetime end
 
 17. Use `cURL` to test access to the following **JSON** routes on your Rails site:
   * `GET /talks`
-  * `GET /conferences/:id` (for some id you know exists on your site)
+  * `GET /conferences/:id` (use conference id you know exists on your site)
   * `POST /talks`
-  * `DELETE /talks/:id` (for some id you know exists on your site)
+  * `DELETE /talks/:id` (use talk id you know exists on your site)
 
   <details>
   <summary>Click for suggestions about where to find out how to do this!</summary>
