@@ -156,7 +156,7 @@ $ rails g scaffold talk title:string speaker_name:string start_time:datetime end
 
   **Next up:** more complex custom jbuilder view
 
-13. Update the JSON show view for single conferences so that conference JSON lists all of the conference's talks in an embedded array.  Each talk should include a url link to its individual JSON page, but they don't need to include times they were created or updated.
+13. Update the JSON show view for single conferences so that conference JSON lists all of the conference's talks in an embedded array.  Each talk should include a url link to its individual JSON page, but they don't need to include conference_id, created_at, or updated_at.
 
   **Next up:** seeds!
 
