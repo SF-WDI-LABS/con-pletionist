@@ -84,16 +84,7 @@ $ rails routes
 
 6. Look over the first example input and output in the [`jbuilder` docs](https://github.com/rails/jbuilder) to see some of how `jbuilder` creates structured data.
 
-7. Edit `views/conferences/index.json.jbuilder` and/or `views/conferences/show.json.jbuilder` so that both JSON views include a field for the url of each conference. Use url helpers to generate the correct url for each conference, and set the format of the url to JSON. Hint: start by looking at each of these files.
-
-  <details>
-    <summary>Stuck? Click to see suggestions about where to look for more information.</summary>
-
-* search for "Rails url helper"
-* search for "Rails url helper JSON format"
-* revisit the example in the `jbuilder` documentation
-
-  </details>
+7. Look at `views/conferences/index.json.jbuilder` and `views/conferences/show.json.jbuilder` to see how both JSON views include a field for the url of each conference. Note the use of url helpers to first generate the correct url for each conference, and then set the format of the url to JSON. 
 
 ### Incorporate Talks
 
