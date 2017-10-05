@@ -109,17 +109,12 @@ $ rails g scaffold talk title:string speaker_name:string start_time:datetime end
 
 11. Wait to make changes, but explore the following files or directories and see how or if the association is reflected in each. When you're finished with a file or directory, click the file or directory name to compare notes.
 
-  * <details><summary>
+  * <details>
+    <summary>`views/talks/`</summary>
 
-`views/talks/`
-
-    </summary>
     form partial includes a conference id (and a cool datetime form element!); show and index html templates display the conference; show and index JSON templates include the conference id</details>
-  * <details><summary>
-
-`config/routes.rb`
-
-    </summary>
+  * <details>
+    <summary>`config/routes.rb`</summary>
 
     routes for talks and conferences are both included, but talks aren't nested in conferences
 
