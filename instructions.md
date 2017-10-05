@@ -127,25 +127,25 @@ $ rails g scaffold talk title:string speaker_name:string start_time:datetime end
 
     </details>
   * <details>
-   <summary>`app/models/talk.rb`</summary>
+    <summary>`app/models/talk.rb`</summary>
 
 `belongs_to :conference` is set up!
 
     </details>
   * <details>
-  <summary>`app/models/conference.rb`</summary>
+    <summary>`app/models/conference.rb`</summary>
 
 the association is incomplete on this side; you'll add `has_many :talks` here
 
     </details>
   * <details>
-<summary>`db/migrate/`</summary>
+    <summary>`db/migrate/`</summary>
 
 there's a new migration file to create the talks table, and it includes a `t.belongs_to` for the conference foreign key
 
     </details>
   * <details>
-  <summary>`db/schema.rb`</summary>
+    <summary>`db/schema.rb`</summary>
 
 since you had to run `rake db:migrate` to get talks working, there should be a talks table here with the foreign key set up
 
