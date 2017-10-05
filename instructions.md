@@ -76,7 +76,7 @@ $ rails routes
 
   * Taking a hint from the generated comments in the conferences controller, visit the `/conferences` endpoint in your browser. What do you see?
 
-  * In the conferences controller, what is the `conference_params` private method for? What does the `params.fetch(:conference, {})` line do?
+  * In the conferences controller, what is the `conference_params` private method for? What does the `params.require(:conference)` line do?
 
   * Find documentation for the `render` method.  `render` with a hash like `{ json: @conference }` ?
 
