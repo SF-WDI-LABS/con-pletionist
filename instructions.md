@@ -112,7 +112,8 @@ $ rails g scaffold talk title:string speaker_name:string start_time:datetime end
   * <details>
     <summary>`views/talks/`</summary>
 
-    form partial includes a conference id (and a cool datetime form element!); show and index html templates display the conference; show and index JSON templates include the conference id</details>
+    form partial includes a conference id (and a cool datetime form element!); show and index html templates display the conference; show and index JSON templates include the conference id
+    </details>
   * <details>
     <summary>`config/routes.rb`</summary>
 
@@ -161,7 +162,8 @@ since you had to run `rake db:migrate` to get talks working, there should be a t
 
 14. Add seed data to your project to create at least 2 conferences and 5 talks. Test your CRUD methods in the Rails console.
 
-  <details><summary>Click for tips for seeding times in Rails.</summary>
+  <details>
+  <summary>Click for tips for seeding times in Rails.</summary>
 
     * you can use `Time.current` to get a time with time zone information (the default time zone is UTC)
     * (you can set the time zone with `Time.zone=` or `config.time_zone`)
@@ -184,13 +186,15 @@ since you had to run `rake db:migrate` to get talks working, there should be a t
   * `POST /talks`
   * `DELETE /talks/:id` (for some id you know exists on your site)
 
-  <details><summary>Click for suggestions about where to find out how to do this!</summary>
+  <details>
+  <summary>Click for suggestions about where to find out how to do this!</summary>
   * search "curl json format rails"
   </details>
 
   Write your `cURL` commands down to use again later.
 
-  <details><summary>
+  <details>
+   <summary>
       Stuck? Click to see a sample verbose cURL command to get JSON for GET /conferences/3. (You'll need to modify it!)
     </summary>
 
@@ -198,7 +202,8 @@ since you had to run `rake db:migrate` to get talks working, there should be a t
 
   </details>
 
-  <details><summary>
+  <details>
+  <summary>
       Stuck? Click to see a sample verbose cURL command for POST /talks. (You'll need to modify it!)
     </summary>
 
@@ -212,7 +217,8 @@ since you had to run `rake db:migrate` to get talks working, there should be a t
 
 19. Rails provides a lot of [security features](http://guides.rubyonrails.org/security.html).  One such security feature is a token that Rails places on every page to protect from Cross-Site Request Forgery (CSRF).   Unfortunately, this protection throws an exception and doesn't let anyone else use our api.  Configure Rails to protect the site from forgery with the `null_session` strategy instead of with an exception.
 
-  <details><summary>Click for a suggestion about where to find more information.</summary>
+  <details>
+  <summary>Click for a suggestion about where to find more information.</summary>
     * search "Rails CSRF null_session"
   </details>
 
