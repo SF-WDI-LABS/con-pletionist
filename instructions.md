@@ -34,12 +34,12 @@ This repo holds the completed app solution.
 
 1. Generate a new rails project (called `con-pletionist`).  Use a postgres database, skip Rails' built-in Minitest tests, and use the `--api` option to let Rails know your app should be set up as just a back-end API.
 
-  <details>
-    <summary>Stuck? Click to see the Terminal command to run.</summary>
+<details>
+<summary>Stuck? Click to see the Terminal command to run.</summary>
 
-    In your Terminal, run `rails new con-pletionist  --database=postgresql -T --api`
+In your Terminal, run <code>rails new con-pletionist  --database=postgresql -T --api</code>
 
-  </details>  
+</details>  
   
   `cd` into your app and open your Gemfile. Uncomment the line including the `jbuilder` gem. `jbuilder` is a gem that creates JSON for our API routes, the same way that our `.html.erb` files create HTML for our normal routes. Run `bundle install`.
 
@@ -110,42 +110,42 @@ $ rails g scaffold talk title:string speaker_name:string start_time:datetime end
 11. Wait to make changes, but explore the following files or directories and see how or if the association is reflected in each. When you're finished with a file or directory, click the file or directory name to compare notes.
 
   * <details>
-    <summary>`views/talks/`</summary>
+    <summary><code>views/talks/</code></summary>
 
     form partial includes a conference id (and a cool datetime form element!); show and index html templates display the conference; show and index JSON templates include the conference id
     </details>
   * <details>
-    <summary>`config/routes.rb`</summary>
+    <summary><code>config/routes.rb</code></summary>
 
     routes for talks and conferences are both included, but talks aren't nested in conferences
 
     </details>
   * <details>
-    <summary>`app/controllers/talks_controller.rb`</summary>
+    <summary><code>app/controllers/talks_controller.rb</code></summary>
 
     the conference id is brought in as a permitted parameter in `talk_params`
 
     </details>
   * <details>
-    <summary>`app/models/talk.rb`</summary>
+    <summary><code>app/models/talk.rb</code></summary>
 
     `belongs_to :conference` is set up!
 
     </details>
   * <details>
-    <summary>`app/models/conference.rb`</summary>
+    <summary><code>app/models/conference.rb</code></summary>
 
     the association is incomplete on this side; you'll add `has_many :talks` here
 
     </details>
   * <details>
-    <summary>`db/migrate/`</summary>
+    <summary><code>db/migrate/</code></summary>
 
     there's a new migration file to create the talks table, and it includes a `t.belongs_to` for the conference foreign key
 
     </details>
   * <details>
-    <summary>`db/schema.rb`</summary>
+    <summary><code>db/schema.rb</code></summary>
 
     since you had to run `rake db:migrate` to get talks working, there should be a talks table here with the foreign key set up
 
@@ -174,7 +174,7 @@ $ rails g scaffold talk title:string speaker_name:string start_time:datetime end
 
 15. Seed your database, and run through your app to confirm that your JSON and HTML views are working as expected.
 
-**Note:** At this point, with JSON templates and routes, you could tear out your views and use Angular on the front end instead.  (Details coming soon!)  For now, though, we'll move in a different direction and allow any front end to access the API.
+**Note:** At this point, with JSON templates and routes, you could tear out your views and use React or Angular on the front end instead. For now, though, we'll move in a different direction and allow any front end to access the API.
 
 ### Open your API
 
@@ -226,7 +226,7 @@ $ rails g scaffold talk title:string speaker_name:string start_time:datetime end
 
   **Next up:** configure CORS headers with `rack-cors`
 
-21. Cross-Origin Resource Sharing (CORS) is a standard for sharing resources across domains. The gem `rack-cors` can help configure Rails apps to use CORS. Follow the [`rack-cors` documentation](https://github.com/cyu/rack-cors) to add this gem to your project and configure it.  Use the Rails 4 example linked from that documentation.
+21. Cross-Origin Resource Sharing (CORS) is a standard for sharing resources across domains. The gem `rack-cors` can help configure Rails apps to use CORS. Follow the [`rack-cors` documentation](https://github.com/cyu/rack-cors) to add this gem to your project and configure it.  Use the Rails 5 example linked from that documentation.
 
 22. Try your `cURL` commands again. All of them should be successful!
 
@@ -248,15 +248,6 @@ Clean up this site's dismal front end.  Slightly less dismal solution provided.
 2. Modify HTML views so that instead of `#<Conference:0x007fa49430bc78>` or `#<Talk:0x007359ab3e2391>` the user sees the conference name or talk title.
 
 3. Format the displayed times on your site so they're easier to read.
-
-
-### HATEOAS
-
-Level up knowledge of REST with some research, and practice `jbuilder`. Solution not provided.
-
-1. HATEOAS, like RESTful routing, is a part of the REST convention. HATEOAS makes it easy to discover resources on a site.  It's less frequently used than RESTful routing but still very common.
-
-2. Update your JSON views to include links implementing (or approaching) HATEOAS.  
 
 
 ### Nest Talk Routes in Conferences
